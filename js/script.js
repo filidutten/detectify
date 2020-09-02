@@ -9,11 +9,13 @@ $(document).ready(function(){
     });
 
     $(".dropdown").click(function(){
-      $(".dropdown-content").toggleClass("show");
+        $(".dropdown-content").toggleClass("show");
     });
 
-    $(".close-subnav").click(function(){
-      $(".subnav").removeClass("open");
+    $(".filter-buttons > .filter-btn").click(function(){
+        if ($("#theDropdown").hasClass("show")) {
+            $("#theDropdown").removeClass("show");
+        }
     });
 
     $('.mob-open').on('click', function() {
@@ -26,6 +28,7 @@ $(document).ready(function(){
     $(".close-subnav").click(function(){
         $(".subnav").removeClass("open");
     });
+
 });
 
 $(document).keyup(function(e) {

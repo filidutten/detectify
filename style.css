@@ -301,7 +301,6 @@ a {
     -o-transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;
     transition: all .3s ease-out;
-
 }
 
 .subnav.open .subnav-content {
@@ -883,7 +882,6 @@ html.show-menu .menu-mob {
     color: #434657;
 }
 
-
 .search-bar:before {
     content: "";
     position: absolute;
@@ -948,7 +946,7 @@ html.show-menu .menu-mob {
     position: relative;
     display: inline-block;
     padding: 10px 10px 10px 18px;
-    width: auto;
+    width: 150px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -959,6 +957,20 @@ html.show-menu .menu-mob {
        -moz-border-radius: 4px;
             border-radius: 4px;
     padding-right: 88px;
+    background: #fff;
+}
+
+.dropdown .filter-btn {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 0px;
     background: #fff;
 }
 
@@ -987,7 +999,7 @@ html.show-menu .menu-mob {
 .dropdown-content {
     display: none;
     position: absolute;
-    left: -2px;
+    left: -1px;
     top: 46px;
     right: 0;
     background-color: #fff;
@@ -1001,6 +1013,10 @@ html.show-menu .menu-mob {
     z-index: 1123;
     max-height: 200px;
     overflow: scroll;
+}
+
+#drop-text {
+    text-align: left;
 }
 
 .dropdown-content p {
@@ -1367,6 +1383,10 @@ footer {
         padding: 12px 24px 32px;
     }
 
+    .search-bar input[type=text] {
+        max-width: 180px;
+    }
+
     .controls {
         display: none;
     }
@@ -1385,6 +1405,7 @@ footer {
 
     .dropdown {
         padding-right: 60px;
+        width: 135px;
     }
 
     .hero h1 {
@@ -1549,8 +1570,7 @@ footer {
         left: -80px;
     }
 
-    .search-bar,
-    .no-event-card {
+    .search-bar {
         display: none;
     }
 
@@ -1755,7 +1775,8 @@ footer {
         padding: 18px 64px 18px 32px;
     }
 
-    .dropdown {
+    .dropdown,
+    .no-event-card {
         display: none;
     }
 

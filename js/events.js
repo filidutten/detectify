@@ -239,6 +239,18 @@ function theDate(date) {
     return date_result;
 }
 
+function theMonth(date) {
+
+    let formatted_date = Date.parse(date);
+    let new_month = new Date(formatted_date);
+    let options = {
+            month: 'short',
+        };
+
+    let month_result = new_month.toLocaleDateString('en', options);
+    return month_result;
+}
+
 function theYear(date) {
 
     let formatted_date = Date.parse(date);
@@ -254,7 +266,7 @@ function theYear(date) {
 function eventTemplate(event) {
 
     return `
-        <div class="event-card ${event.type} swiper-slide">
+        <div class="event-card ${event.type} swiper-slide ${theMonth(event.date)}">
             <div class="event-header">
                 <h4>${theDate(event.date)}<span>${theYear(event.date)}</span></h4>
                 <p>${event.country}</p>
@@ -349,15 +361,30 @@ function eventRemoveClass(element, name) {
 }
 
 
-//Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("btn-container");
-var btns = btnContainer.getElementsByClassName("filter-btn");
+
+
+const btnContainer = document.getElementById("btn-container");
+const btns = btnContainer.getElementsByClassName("filter-btn");
+const titleElem = document.querySelector('.drop-btn p');
+
 for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function(){
         var current = document.getElementsByClassName("active");
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";
+    	titleElem.textContent = 'Month';
+        removeInlineStyle();
         swiper.update();
+    });
+}
+
+function removeInlineStyle() {
+
+    let eventContainer = document.getElementById("events-wrapper");
+    let eventCard = eventContainer.getElementsByClassName("event-card");
+
+    Array.prototype.forEach.call(eventCard, function(element){
+        element.style.removeProperty('display');
     });
 }
 
@@ -391,10 +418,26 @@ input.addEventListener('input', function() {
 function setVisibility(element, block){
     element.style.display = block;
 }
+//
+// function setVisibilityByClass(name, block) {
+//     var elements = document.getElementsByClassName(name);
+//     for (var i = 0; i < elements.length; i++) {
+//         setVisibility(elements[i], block);
+//     }
+// }
 
-function setVisibilityByClass(name, block) {
-    var elements = document.getElementsByClassName(name);
-    for (var i = 0; i < elements.length; i++) {
-        setVisibility(elements[i], block);
-    }
+function handleOptionSelected(e){
+	const id = e.target.id;
+	const newValue = e.target.textContent + ' ';
+	const titleElem = document.querySelector('.drop-btn p');
+
+	titleElem.textContent = newValue;
+
+	document.querySelector('.drop-btn p').dispatchEvent(new Event('change'));
+    swiper.update();
 }
+
+const dropdownTitle = document.querySelector('.drop-btn p');
+const dropdownOptions = document.querySelectorAll('.dropdown-content .option');
+
+dropdownOptions.forEach(option => option.addEventListener('click',handleOptionSelected));

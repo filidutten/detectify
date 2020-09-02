@@ -196,30 +196,32 @@
                     <div class="filter-btn active" onclick="filterSelection('all')"><p class="allcaps">All</p></div>
                     <div class="filter-btn" onclick="filterSelection('Online')"><p class="allcaps">Online</p></div>
                     <div class="filter-btn" onclick="filterSelection('Live')"><p class="allcaps">Live</p></div>
-                </div>
-
-                <div class="dropdown">
-                    <div class="drop-btn">
-                        <p class="allcaps">Month</p>
-                        <div class="down-arrow">
-                            <?php require 'icons/chevron-down_24_white.svg'; ?>
+                    <div class="dropdown">
+                        <div class="drop-btn">
+                            <p class="allcaps" id="drop-text">Month</p>
+                            <div class="down-arrow">
+                                <?php require 'icons/chevron-down_24_white.svg'; ?>
+                            </div>
+                        </div>
+                        <div id="theDropdown" class="dropdown-content">
+                            <p onclick="filterSelection('Jan')" class="allcaps option filter-btn">Jan</p>
+                            <p onclick="filterSelection('Feb')" class="allcaps option filter-btn">Feb</p>
+                            <p onclick="filterSelection('Mar')" class="allcaps option filter-btn">Mar</p>
+                            <p onclick="filterSelection('Apr')" class="allcaps option filter-btn">Apr</p>
+                            <p onclick="filterSelection('May')" class="allcaps option filter-btn">May</p>
+                            <p onclick="filterSelection('Jun')" class="allcaps option filter-btn">Jun</p>
+                            <p onclick="filterSelection('Jul')" class="allcaps option filter-btn">Jul</p>
+                            <p onclick="filterSelection('Aug')" class="allcaps option filter-btn">Aug</p>
+                            <p onclick="filterSelection('Sep')" class="allcaps option filter-btn">Sep</p>
+                            <p onclick="filterSelection('Oct')" class="allcaps option filter-btn">Oct</p>
+                            <p onclick="filterSelection('Nov')" class="allcaps option filter-btn">Nov</p>
+                            <p onclick="filterSelection('Dec')" class="allcaps option filter-btn">Dec</p>
                         </div>
                     </div>
-                    <div id="theDropdown" class="dropdown-content">
-                        <p class="allcaps">Jan</p>
-                        <p class="allcaps">Feb</p>
-                        <p class="allcaps">mar</p>
-                        <p class="allcaps">apr</p>
-                        <p class="allcaps">may</p>
-                        <p class="allcaps">jun</p>
-                        <p class="allcaps">jul</p>
-                        <p class="allcaps">aug</p>
-                        <p class="allcaps">sep</p>
-                        <p class="allcaps">oct</p>
-                        <p class="allcaps">nov</p>
-                        <p class="allcaps">dec</p>
-                    </div>
+
                 </div>
+
+
             </div>
 
             <div class="controls">
